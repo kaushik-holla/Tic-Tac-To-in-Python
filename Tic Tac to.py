@@ -14,18 +14,29 @@ def printBoard():
    # print('---------')
 
 # Code for players Move
+user = str(input("Do want to play local multiplayer , press [ Y/n  ] "))
+user2 = user.lower()
 def playerTurn():
     # print('Player:')
-    pos = int(input('Player:'))
+    pos = int(input("Player :"))
 
     if board[pos] != 'x' and board[pos] != 'o':
         board[pos] = 'x'
     else:
         print("Already taken")
 
+        
+# Player 2 turn
+if user2 == "y" :
+    def player2Turn():
+        pos = int(input("Player2 :"))
+        if board[pos] != 'x' and board[pos] != 'o':
+        board[pos] = 'x'
+        else : 
+            print("Already taken")
 # Code for computers move
 def compTurn():
-    while True:
+    while user2 == "n" :
         pos = random.randint(0, 8)
         if board[pos] != 'x' and board[pos] != 'o':
             board[pos] = 'o'
@@ -41,6 +52,7 @@ if rand == 0:
     print("Player First")
     for i in range(1,9):
         playerTurn()
+        player2Turn()
         compTurn()
         printBoard()
 
@@ -48,6 +60,7 @@ if rand == 1:
     print("Computer First")
     for i in range(1,9):
         playerTurn()
+        player2Turn()
         compTurn()
         printBoard()
 
